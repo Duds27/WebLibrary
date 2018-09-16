@@ -5,9 +5,9 @@ namespace DDD.Domain.Interfaces.Services
 {
     public interface IServiceBook
     {
-        AddBookResponse Add(AddBookRequest request);
-        EditBookResponse Edit(EditBookRequest request);
-        DeleteBookResponse Delete(DeleteBookRequest request);
+        AddBookResponse AddBook(AddBookRequest request);
+        EditBookResponse EditBook(EditBookRequest request);
+        DeleteBookResponse DeleteBook(DeleteBookRequest request);
         IEnumerable<BookResponse> ListAllBook();
     }
 }

@@ -4,7 +4,7 @@ namespace DDD.Domain.Interfaces.Services
 {
     public interface IServiceExemplary
     {
-        AddExemplaryResponse Add(AddExemplaryRequest request);
-        GetExemplaryResponse GetCount(GetExemplaryRequest request);
+        AddExemplaryResponse AddExemplary(AddExemplaryRequest request);
+        GetExemplaryResponse GetExemplaryCount(GetExemplaryRequest request);
     }
 }
