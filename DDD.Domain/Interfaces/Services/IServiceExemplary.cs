@@ -2,8 +2,9 @@ using DDD.Domain.Arguments.Exemplary;
 
 namespace DDD.Domain.Interfaces.Services
 {
-    public interface IServiceBook
+    public interface IServiceExemplary
     {
-        AdicionarExemplarResponse Adicionar(AdicionarExemplarRequest request);
+        AddExemplaryResponse Add(AddExemplaryRequest request);
+        GetExemplaryResponse GetCount(GetExemplaryRequest request);
     }
 }

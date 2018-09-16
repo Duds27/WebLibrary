@@ -2,7 +2,7 @@ using DDD.Domain.Interfaces.Arguments;
 
 namespace DDD.Domain.Arguments.Book
 {
-    public class AdicionarLivroRequest : IRequest
+    public class EditBookRequest : IRequest
     {
         public string Book_Title { get; set; }
         public string Book_Description { get; set; }
