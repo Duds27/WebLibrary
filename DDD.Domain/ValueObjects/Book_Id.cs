@@ -2,12 +2,12 @@ namespace DDD.Domain.ValueObjects
 {
     public class Book_Id
     {
-        protected Book_Id()
+        protected Book_Id ()
         {
 
         }
 
-        public Book_Id(int id)
+        public Book_Id (int id)
         {
             Id = id;
         }

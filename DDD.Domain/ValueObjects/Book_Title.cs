@@ -2,12 +2,12 @@ namespace DDD.Domain.ValueObjects
 {
     public class Book_Title
     {
-        protected Book_Title()
+        protected Book_Title ()
         {
 
         }
 
-        public Book_Title(string title)
+        public Book_Title (string title)
         {
             Title = title;
         }

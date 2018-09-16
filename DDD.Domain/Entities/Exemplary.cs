@@ -4,12 +4,12 @@ namespace DDD.Domain.Entities
 {
     public class Exemplary
     {
-        protected Exemplary()
+        protected Exemplary ()
         {
 
         }
 
-        public Exemplary(Exemplary_Id exemplary_id, Book_Id book_id)
+        public Exemplary (Exemplary_Id exemplary_id, Book_Id book_id)
         {
             Exemplary_Id = exemplary_id;
             Book_Id      = book_id;
