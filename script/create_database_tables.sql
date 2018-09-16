@@ -1,7 +1,7 @@
--- Deletando DATABASE LivrariaHbsis já existente para criar-se um novo do início
+-- Deletando DATABASE LivrariaHbsis jï¿½ existente para criar-se um novo do inï¿½cio
 use master;
 
--- Limpo o cache da instância do SQL Server para poder deletar o Database LivrariaHbsis caso ele esteja em uso
+-- Limpo o cache da instï¿½ncia do SQL Server para poder deletar o Database LivrariaHbsis caso ele esteja em uso
 DBCC FREEPROCCACHE;
 
 -- Deletando as Tabelas do meu Database LivrariaHbsis, caso ele exista, e posteriormente, deleto o Database LivrariaHbsis
@@ -17,7 +17,7 @@ use LivrariaHbsis;
 go
 create table BOOK
 (
-	book_id						bigint primary key identity not null,
+	book_id						int primary key identity not null,
 	book_title					varchar(200) not null,
 	book_description			varchar(255) not null,
 	book_author					varchar(200) not null,
@@ -26,19 +26,19 @@ create table BOOK
 );
 create table EXEMPLARY
 (
-	exemplary_id		bigint primary key identity not null,
-	book_id				bigint references BOOK not null,
+	exemplary_id		int primary key identity not null,
+	book_id				int references BOOK not null,
 	exemplary_count		int default 1
 );
 
 
 -- Inserindo dados na Tabela BOOK para testes do banco de dados
-insert into BOOK (book_title, book_description, book_author, book_publishing_company, book_price) values ('Livro Z', 'Descrição do Livro Z', 'Erase', 'Ed. Apagar Livro', 428.75);
-insert into BOOK (book_title, book_description, book_author, book_publishing_company, book_price) values ('Livro B', 'Descrição do Livro B', 'Carlos', 'Ed. Engenharia Para Todos', 536.43);
-insert into BOOK (book_title, book_description, book_author, book_publishing_company, book_price) values ('Livro E', 'Descrição do Livro E', 'Henrique', 'Ed. Novo Horizonte', 764.67);
-insert into BOOK (book_title, book_description, book_author, book_publishing_company, book_price) values ('Livro D', 'Descrição do Livro D', 'Alex', 'Ed. Mundo Globalizado', 68.45);
-insert into BOOK (book_title, book_description, book_author, book_publishing_company, book_price) values ('Livro A', 'Descrição do Livro A', 'Eduardo', 'Ed. Computação', 635.34);
-insert into BOOK (book_title, book_description, book_author, book_publishing_company, book_price) values ('Livro C', 'Descrição do Livro C', 'Espinoza', 'Ed. Geração XXI', 28.55);
+insert into BOOK (book_title, book_description, book_author, book_publishing_company, book_price) values ('Livro Z', 'Descriï¿½ï¿½o do Livro Z', 'Erase', 'Ed. Apagar Livro', 428.75);
+insert into BOOK (book_title, book_description, book_author, book_publishing_company, book_price) values ('Livro B', 'Descriï¿½ï¿½o do Livro B', 'Carlos', 'Ed. Engenharia Para Todos', 536.43);
+insert into BOOK (book_title, book_description, book_author, book_publishing_company, book_price) values ('Livro E', 'Descriï¿½ï¿½o do Livro E', 'Henrique', 'Ed. Novo Horizonte', 764.67);
+insert into BOOK (book_title, book_description, book_author, book_publishing_company, book_price) values ('Livro D', 'Descriï¿½ï¿½o do Livro D', 'Alex', 'Ed. Mundo Globalizado', 68.45);
+insert into BOOK (book_title, book_description, book_author, book_publishing_company, book_price) values ('Livro A', 'Descriï¿½ï¿½o do Livro A', 'Eduardo', 'Ed. Computaï¿½ï¿½o', 635.34);
+insert into BOOK (book_title, book_description, book_author, book_publishing_company, book_price) values ('Livro C', 'Descriï¿½ï¿½o do Livro C', 'Espinoza', 'Ed. Geraï¿½ï¿½o XXI', 28.55);
 
 
 -- Deletando registros - Teste de Query
@@ -46,7 +46,7 @@ delete from BOOK where book_id = 1;
 
 
 -- Inserindo mais um dado na Tabela BOOK
-insert into BOOK (book_title, book_description, book_author, book_publishing_company, book_price) values ('Livro F', 'Descrição do Livro F', 'Junior', 'Ed. Pensadores', 428.75);
+insert into BOOK (book_title, book_description, book_author, book_publishing_company, book_price) values ('Livro F', 'Descriï¿½ï¿½o do Livro F', 'Junior', 'Ed. Pensadores', 428.75);
 
 
 -- Inserindo dados na Tabela EXEMPLARY para testes do banco de dados
@@ -57,29 +57,29 @@ insert into EXEMPLARY (book_id, exemplary_count) values (4, 0);
 insert into EXEMPLARY (book_id, exemplary_count) values (5, 4);
 
 
--- Listando livros ordenados pelo título
+-- Listando livros ordenados pelo tï¿½tulo
 select * from BOOK order by book_title;
 
 
 -- Atualizando um livro
-update BOOK set book_description = 'Descrição do Livro D editado com update' where book_id = 4;
+update BOOK set book_description = 'Descriï¿½ï¿½o do Livro D editado com update' where book_id = 4;
 
 
--- Criando uma Query para listar dados de exibição no momento de adicionar exemplares
+-- Criando uma Query para listar dados de exibiï¿½ï¿½o no momento de adicionar exemplares
 select b.book_id, b.book_title, e.exemplary_count from BOOK b inner join EXEMPLARY e on b.book_id = e.book_id order by b.book_title;
 
 
--- Criando uma Query para listar dados de exibição no momento que estiver na Home
+-- Criando uma Query para listar dados de exibiï¿½ï¿½o no momento que estiver na Home
 select * from BOOK b inner join EXEMPLARY e on b.book_id = e.book_id order by b.book_title;
 
 
 
 -- NAO UTILIZADOS
 
--- Resetando contador do incremento para a geração do ID
+-- Resetando contador do incremento para a geraï¿½ï¿½o do ID
 -- dbcc checkident ('[BOOK]', reseed, 0);
 
-/*-- Criando uma View para listar dados de exibição no momento de adicionar exemplares
+/*-- Criando uma View para listar dados de exibiï¿½ï¿½o no momento de adicionar exemplares
 create view vwBookExemplary as 
 	select 
 		b.book_id,
