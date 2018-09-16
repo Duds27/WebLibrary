@@ -9,9 +9,9 @@ namespace DDD.Domain
 
         }
 
-        public static void When(bool valid, string error)
+        public static void When(bool hasError, string error)
         {
-            if (!valid)
+            if (!hasError)
                 throw DomainException(error);
         }        
     }
