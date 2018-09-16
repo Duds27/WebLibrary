@@ -5,7 +5,6 @@ use master;
 DBCC FREEPROCCACHE;
 
 -- Deletando as Tabelas do meu Database LivrariaHbsis, caso ele exista, e posteriormente, deleto o Database LivrariaHbsis
-if exists(select * from sys.databases where name='LivrariaHbsis') drop view vwBookExemplary;
 if exists(select * from sys.databases where name='LivrariaHbsis') drop table LivrariaHbsis.dbo.EXEMPLARY;
 if exists(select * from sys.databases where name='LivrariaHbsis') drop table LivrariaHbsis.dbo.BOOK;
 if exists(select * from sys.databases where name='LivrariaHbsis') drop database LivrariaHbsis;
@@ -75,6 +74,9 @@ select * from BOOK b inner join EXEMPLARY e on b.book_id = e.book_id order by b.
 
 
 -- NAO UTILIZADOS
+
+--if exists(select * from sys.databases where name='LivrariaHbsis') drop view vwBookExemplary;
+
 
 -- Resetando contador do incremento para a gera��o do ID
 -- dbcc checkident ('[BOOK]', reseed, 0);
