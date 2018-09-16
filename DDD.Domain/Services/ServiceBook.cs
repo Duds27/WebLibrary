@@ -1,8 +1,11 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using DDD.Domain.Arguments.Book;
+using DDD.Domain.Entities;
 using DDD.Domain.Interfaces.Repositories;
 using DDD.Domain.Interfaces.Services;
+using DDD.Domain.ValueObjects;
 
 namespace DDD.Domain.Services
 {
@@ -17,28 +20,53 @@ namespace DDD.Domain.Services
 
         public AddBookResponse AddBook(AddBookRequest request)
         {            
-            int book_id = _repositoryBook.AddBook(request);
+            var book_title              = new Book_Title(request.Book_Title);
+            var book_description        = request.Book_Description;
+            var book_author             = request.Book_Author;
+            var book_publishing_company = request.Book_Publishing_Company;
+            var book_price              = request.Book_Price;
 
-            return new AddBookResponse() { Book_Id = book_id, Message = "Livro adicionado com sucesso!" };
+            /* TODO: Criar validacao para o book */
+            
+            Book book = new Book(book_title, book_description, book_author, book_publishing_company, book_price);
+            
+            book = _repositoryBook.AddBook(book);
+
+            return (AddBookResponse) book;
         }
 
         public DeleteBookResponse DeleteBook(DeleteBookRequest request)
         {
-            string msg = _repositoryBook.DeleteBook(request);
+            var book_title = new Book_Title(request.Book_Title);
+
+            Book book = new Book(book_title, "", "", "", 0.0);
+            
+            string msg = _repositoryBook.DeleteBook(book_title);
 
             return new DeleteBookResponse() { Message = "Livro deletado com sucesso!" };
         }
 
         public EditBookResponse EditBook(EditBookRequest request)
         {
-            int book_id = _repositoryBook.EditBook(request);
+            var book_title              = new Book_Title(request.Book_Title);
+            var book_description        = request.Book_Description;
+            var book_author             = request.Book_Author;
+            var book_publishing_company = request.Book_Publishing_Company;
+            var book_price              = request.Book_Price;
 
-            return new EditBookResponse() { Book_id = book_id, Message = "Livro foi editado com sucesso!" };
+            Book book = new Book(book_title, book_description, book_author, book_publishing_company, book_price);
+
+            /* TODO: Criar validacao para o book */
+                        
+            book = _repositoryBook.EditBook(book);
+
+            
+            return (EditBookResponse) book;
         }
 
         public IEnumerable<BookResponse> ListAllBook()
         {
-            return _repositoryBook.ListAllBook();
+            return _repositoryBook.ListAllBook().ToList().Select(book => (BookResponse) book).ToList();
         }
     }
 }

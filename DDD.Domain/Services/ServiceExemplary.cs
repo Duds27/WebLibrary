@@ -1,6 +1,8 @@
 using DDD.Domain.Arguments.Exemplary;
+using DDD.Domain.Entities;
 using DDD.Domain.Interfaces.Repositories;
 using DDD.Domain.Interfaces.Services;
+using DDD.Domain.ValueObjects;
 
 namespace DDD.Domain.Services
 {
@@ -15,14 +17,29 @@ namespace DDD.Domain.Services
 
         public AddExemplaryResponse AddExemplary(AddExemplaryRequest request)
         {
-            int id = _repositoryExemplary.AddExemplary(request);
+            var book_id         = request.Book_Id;
+            var exemplary_count = request.Exemplary_Count;
 
-            return new AddExemplaryResponse() { Exemplary_Id = id, Message = "Exemplar adicionado com sucesso!" };
+            Exemplary exemplary = new Exemplary(new Book_Id(book_id), exemplary_count);
+
+            /* TODO: criar validacoa  */
+
+            exemplary = _repositoryExemplary.AddExemplary(exemplary);
+
+            return  (AddExemplaryResponse) exemplary;
         }
 
         public GetExemplaryResponse GetExemplaryCount(GetExemplaryRequest request)
         {
-            return _repositoryExemplary.GetExemplaryCount(request);
+            var book_id = request.Book_Id;
+
+            Exemplary exemplary = new Exemplary(book_id);
+
+            /* TODO: criar validacao */
+            
+            exemplary = _repositoryExemplary.GetExemplaryCount(exemplary);
+
+            return (GetExemplaryResponse) exemplary;
         }
     }
 }

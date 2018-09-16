@@ -21,6 +21,18 @@ namespace DDD.Domain.Entities
             SetProperties(exemplary_id, book_id, 0);
         }
 
+        public Exemplary (Book_Id book_id, int exemplary_count)
+        {
+            ValidateValues(book_id, exemplary_count);
+            SetProperties(book_id, exemplary_count);
+        }
+
+        public Exemplary (Book_Id book_id)
+        {
+            ValidateValues(book_id);
+            SetProperties(book_id);
+        }
+
         public void UpdateExemplary(Book_Id book_id, int exemplary_count)
         {
             ValidateValues(book_id, exemplary_count);
@@ -46,6 +58,11 @@ namespace DDD.Domain.Entities
             DomainException.When((exemplary_count <= 0), "Quantidade de Exemplares não pode ser zero ou negativo!");
         }
 
+        private void ValidateValues(Book_Id book_id)
+        {
+            DomainException.When((book_id.Id <= 0), "ID do Livro é obrigatório!");
+        }
+
         private void SetProperties(Exemplary_Id exemplary_id, Book_Id book_id, int exemplary_count)
         {
             Exemplary_Id    = exemplary_id;
@@ -57,6 +74,11 @@ namespace DDD.Domain.Entities
         {
             Book_Id         = book_id;
             Exemplary_Count = exemplary_count;
+        }
+
+        private void SetProperties(Book_Id book_id)
+        {
+            Book_Id = book_id;
         }
 
         // Encapsulamento das Propriedades

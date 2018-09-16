@@ -16,6 +16,11 @@ namespace DDD.Domain.Entities
             SetProperties(book_id, book_title, book_description, book_author, book_publishing_company, book_price);
         }
 
+        public Book (Book_Title book_title, string book_description, string book_author, string book_publishing_company, double book_price)
+        {
+            ValidateValues(book_title, book_description, book_author, book_publishing_company, book_price);            
+            SetProperties(book_title, book_description, book_author, book_publishing_company, book_price);
+        }
         public Book(Book_Id book_id, Book_Title book_title)
         {
             ValidateValues(book_id, book_title);
@@ -26,25 +31,6 @@ namespace DDD.Domain.Entities
         {
             ValidateValues(book_title, book_description, book_author, book_publishing_company, book_price);
             SetProperties(book_title, book_description, book_author, book_publishing_company, book_price);
-        }
-
-        private void SetProperties(Book_Id book_id, Book_Title book_title, string book_description, string book_author, string book_publishing_company, double book_price)
-        {
-            Book_Id                 = book_id;
-            Book_Title              = book_title;
-            Book_Description        = book_description;
-            Book_Author             = book_author;
-            Book_Publishing_Company = book_publishing_company;
-            Book_Price              = book_price;
-        }
-
-        private void SetProperties(Book_Title book_title, string book_description, string book_author, string book_publishing_company, double book_price)
-        {
-            Book_Title              = book_title;
-            Book_Description        = book_description;
-            Book_Author             = book_author;
-            Book_Publishing_Company = book_publishing_company;
-            Book_Price              = book_price;
         }
 
         private static void ValidateValues (Book_Id book_id, Book_Title book_title, string book_description, string book_author, string book_publishing_company, double book_price)
@@ -70,6 +56,25 @@ namespace DDD.Domain.Entities
         {
             DomainException.When((book_id.Id <= 0), "ID do Livro é obrigatório!");
             DomainException.When(string.IsNullOrEmpty(book_title.Title), "Título do Livro é obrigatório!");
+        }
+
+        private void SetProperties(Book_Id book_id, Book_Title book_title, string book_description, string book_author, string book_publishing_company, double book_price)
+        {
+            Book_Id                 = book_id;
+            Book_Title              = book_title;
+            Book_Description        = book_description;
+            Book_Author             = book_author;
+            Book_Publishing_Company = book_publishing_company;
+            Book_Price              = book_price;
+        }
+
+        private void SetProperties(Book_Title book_title, string book_description, string book_author, string book_publishing_company, double book_price)
+        {
+            Book_Title              = book_title;
+            Book_Description        = book_description;
+            Book_Author             = book_author;
+            Book_Publishing_Company = book_publishing_company;
+            Book_Price              = book_price;
         }
 
 
