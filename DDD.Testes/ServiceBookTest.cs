@@ -18,7 +18,9 @@ namespace DDD.Testes
             new Book(new Book_Id(4), new Book_Title("Livro D"), "Descrição do Livro D", "Alex",     "Ed. Mundo Globalizado",     68.45),
             new Book(new Book_Id(5), new Book_Title("Livro A"), "Descrição do Livro A", "Eduardo",  "Ed. Computação",            635.34),
             new Book(new Book_Id(6), new Book_Title("Livro C"), "Descrição do Livro C", "Espinoza", "Ed. Geração XXI",           28.55),
-            new Book(new Book_Id(7), new Book_Title("Livro F"), "Descrição do Livro F", "Junior",   "Ed. Pensadores",            428.75)
+            new Book(new Book_Id(7), new Book_Title("Livro F"), "Descrição do Livro F", "Junior",   "Ed. Pensadores",            428.75),
+            new Book(new Book_Id(0), new Book_Title("Invalido"), "Invalido", "Invalido",   "Invalido",            0.0),
+            new Book(new Book_Id(-1), new Book_Title("Invalido"), "Invalido", "Invalido",   "Invalido",            0.0)
         };
 
         private AddBookRequest[] booksRequest = {
@@ -37,7 +39,7 @@ namespace DDD.Testes
         [TestMethod]
         public void TestMethod_ServiceBook_AddBook()
         {
-            var service = new ServiceBook();
+            var service = new ServiceBook(null);
 
             AddBookRequest request = booksRequest[0];
             Assert.IsNotNull(request);

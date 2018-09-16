@@ -17,7 +17,7 @@ go
 create table BOOK
 (
 	book_id						int primary key identity not null,
-	book_title					varchar(200) not null,
+	book_title					varchar(200) not null unique,
 	book_description			varchar(255) not null,
 	book_author					varchar(200) not null,
 	book_publishing_company		varchar(200) not null,

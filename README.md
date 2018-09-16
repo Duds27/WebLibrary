@@ -15,3 +15,6 @@ dotnet run
 
 # Para criar o project mvc, utilizei o comando?
 dotnet new mvc
+
+# package de Notification Pattern
+dotnet add package prmToolkit.NotificationPattern --version 1.0.20
