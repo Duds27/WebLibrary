@@ -1,3 +1,4 @@
+using System;
 using DDD.Domain.ValueObjects;
 
 namespace DDD.Domain.Entities
@@ -15,7 +16,7 @@ namespace DDD.Domain.Entities
             SetProperties(book_id, book_title, book_description, book_author, book_publishing_company, book_price);
         }
 
-        public void Update (Book_Id book_Id, Book_Title book_title, string book_description, string book_author, string book_publishing_company, double book_price)
+        public void Update (Book_Id book_id, Book_Title book_title, string book_description, string book_author, string book_publishing_company, double book_price)
         {
             ValidateValues(book_id, book_title, book_description, book_author, book_publishing_company, book_price);
             SetProperties(book_id, book_title, book_description, book_author, book_publishing_company, book_price);
@@ -31,10 +32,10 @@ namespace DDD.Domain.Entities
             Book_Price              = book_price;
         }
 
-        private static void ValidateValues (Book_Id book_id, Book_Title book_title, string book_description, string book_author, string book_publishing_company, string book_price)
+        private static void ValidateValues (Book_Id book_id, Book_Title book_title, string book_description, string book_author, string book_publishing_company, double book_price)
         {
             DomainException.When((book_id.Id <= 0), "ID do Livro é obrigatório!");
-            DomainException.When(string.IsNullOrEmpty(book_title), "Título do Livro é obrigatório!");
+            DomainException.When(string.IsNullOrEmpty(book_title.Title), "Título do Livro é obrigatório!");
             DomainException.When(string.IsNullOrEmpty(book_description), "Descrição do Livro é obrigatório!");
             DomainException.When(string.IsNullOrEmpty(book_author), "Autor do Livro é obrigatório!");
             DomainException.When(string.IsNullOrEmpty(book_publishing_company), "Editora do Livro é obrigatório!");
@@ -47,5 +48,11 @@ namespace DDD.Domain.Entities
         public string Book_Author { get; private set; }
         public string Book_Publishing_Company { get; private set; }
         public double Book_Price { get; private set; }
+
+        public override string ToString()
+        {
+            return $"Book_Id: {Book_Id.Id}\nTítulo: {Book_Title.Title}\nDescrição: {Book_Description}\nAutor: {Book_Author}\nEditora: {Book_Publishing_Company}\nPreço: {Convert.ToString(Book_Price)}";
+        }
+
     }
 }

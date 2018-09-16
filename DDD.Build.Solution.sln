@@ -5,6 +5,8 @@ VisualStudioVersion = 15.0.26124.0
 MinimumVisualStudioVersion = 15.0.26124.0
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DDD.Domain", "DDD.Domain\DDD.Domain.csproj", "{5440C144-F8AC-4933-8D36-B1837BF632D5}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DDD.Testes", "DDD.Testes\DDD.Testes.csproj", "{2548F698-2878-40FE-AD45-2D702AC97C77}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -30,5 +32,17 @@ Global
 		{5440C144-F8AC-4933-8D36-B1837BF632D5}.Release|x64.Build.0 = Release|Any CPU
 		{5440C144-F8AC-4933-8D36-B1837BF632D5}.Release|x86.ActiveCfg = Release|Any CPU
 		{5440C144-F8AC-4933-8D36-B1837BF632D5}.Release|x86.Build.0 = Release|Any CPU
+		{2548F698-2878-40FE-AD45-2D702AC97C77}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2548F698-2878-40FE-AD45-2D702AC97C77}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2548F698-2878-40FE-AD45-2D702AC97C77}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{2548F698-2878-40FE-AD45-2D702AC97C77}.Debug|x64.Build.0 = Debug|Any CPU
+		{2548F698-2878-40FE-AD45-2D702AC97C77}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{2548F698-2878-40FE-AD45-2D702AC97C77}.Debug|x86.Build.0 = Debug|Any CPU
+		{2548F698-2878-40FE-AD45-2D702AC97C77}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2548F698-2878-40FE-AD45-2D702AC97C77}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2548F698-2878-40FE-AD45-2D702AC97C77}.Release|x64.ActiveCfg = Release|Any CPU
+		{2548F698-2878-40FE-AD45-2D702AC97C77}.Release|x64.Build.0 = Release|Any CPU
+		{2548F698-2878-40FE-AD45-2D702AC97C77}.Release|x86.ActiveCfg = Release|Any CPU
+		{2548F698-2878-40FE-AD45-2D702AC97C77}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

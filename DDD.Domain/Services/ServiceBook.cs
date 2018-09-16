@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using DDD.Domain.Arguments.Book;
 using DDD.Domain.Interfaces.Repositories;
@@ -15,7 +16,7 @@ namespace DDD.Domain.Services
         }
 
         public AddBookResponse AddBook(AddBookRequest request)
-        {
+        {            
             int book_id = _repositoryBook.AddBook(request);
 
             return new AddBookResponse() { Book_Id = book_id, Message = "Livro adicionado com sucesso!" };

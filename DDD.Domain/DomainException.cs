@@ -11,8 +11,8 @@ namespace DDD.Domain
 
         public static void When(bool hasError, string error)
         {
-            if (!hasError)
-                throw DomainException(error);
+            if (hasError)
+                throw new DomainException(error);
         }        
     }
 }
