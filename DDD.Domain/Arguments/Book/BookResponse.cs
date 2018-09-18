@@ -15,7 +15,7 @@ namespace DDD.Domain.Arguments.Book
         {
             return new BookResponse() {
                 Book_Id                 = entidade.Id,
-                Book_Title              = entidade.Book_Title.Title,
+                Book_Title              = entidade.Book_Title,
                 Book_Description        = entidade.Book_Description,
                 Book_Author             = entidade.Book_Author,
                 Book_Publishing_Company = entidade.Book_Publishing_Company,

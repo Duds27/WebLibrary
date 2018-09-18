@@ -41,6 +41,12 @@ dotnet add package Microsoft.AspNet.WebApi.Core
 # Para adicionar projects em outros projects 
 dotnet add reference lib1/lib1.csproj lib2/lib2.csproj
 
+# Atualiza Migrations com Banco de Dados
+dotnet ef database update
+
+# Atualiza Migrations com Banco de Dados
+dotnet ef database update
+
 
 dotnet new webapi
 

@@ -19,7 +19,7 @@ namespace DDD.Domain.Services
 
         public AddBookResponse AddBook(AddBookRequest request)
         {
-            var book_title              = new Book_Title(request.Book_Title);
+            var book_title              = request.Book_Title;
             var book_description        = request.Book_Description;
             var book_author             = request.Book_Author;
             var book_publishing_company = request.Book_Publishing_Company;
@@ -27,7 +27,7 @@ namespace DDD.Domain.Services
 
             Book book = new Book(book_title, book_description, book_author, book_publishing_company, book_price);
 
-            if (! _repositoryBook.Existe(b => b.Book_Title.Title == request.Book_Title))
+            if (! _repositoryBook.Existe(b => b.Book_Title == request.Book_Title))
             {
                 return (AddBookResponse) _repositoryBook.Adicionar(book);
             }
@@ -46,7 +46,7 @@ namespace DDD.Domain.Services
 
             if (book != null)
             {
-                var book_title              = new Book_Title(request.Book_Title);
+                var book_title              = request.Book_Title;
                 var book_description        = request.Book_Description;
                 var book_author             = request.Book_Author;
                 var book_publishing_company = request.Book_Publishing_Company;
@@ -64,7 +64,7 @@ namespace DDD.Domain.Services
 
         public DeleteBookResponse DeleteBook(DeleteBookRequest request)
         {
-            Book book = _repositoryBook.ObterPor(b => b.Book_Title.Title == request.Book_Title);
+            Book book = _repositoryBook.ObterPor(b => b.Book_Title == request.Book_Title);
 
             if (book != null)
             {

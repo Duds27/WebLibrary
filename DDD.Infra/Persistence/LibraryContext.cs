@@ -25,7 +25,7 @@ namespace DDD.Infra.Persistence
                 etd.ToTable("BOOK");
                 etd.HasKey(b => b.Id).HasName("book_id");
                 etd.Property(b => b.Id).HasColumnName("book_id").UseSqlServerIdentityColumn().ValueGeneratedOnAdd();
-                etd.HasIndex(b => b.Book_Title.Title).IsUnique();
+                etd.HasIndex(b => b.Book_Title).IsUnique();
                 etd.Property(b => b.Book_Title).HasColumnName("book_title").HasMaxLength(200).IsRequired();
                 etd.Property(b => b.Book_Description).HasColumnName("book_description").HasMaxLength(200).IsRequired();
                 etd.Property(b => b.Book_Author).HasColumnName("book_author").HasMaxLength(200).IsRequired();
