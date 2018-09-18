@@ -2,8 +2,9 @@ using DDD.Domain.Interfaces.Arguments;
 
 namespace DDD.Domain.Arguments.Book
 {
-    public class EditBookRequest : IRequest
+    public class UpdateBookRequest : IRequest
     {
+        public int Book_Id { get; set; }
         public string Book_Title { get; set; }
         public string Book_Description { get; set; }
         public string Book_Author { get; set; }

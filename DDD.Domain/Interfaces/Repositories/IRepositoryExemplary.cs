@@ -1,11 +1,10 @@
-using DDD.Domain.Arguments.Exemplary;
 using DDD.Domain.Entities;
+using DDD.Domain.Interfaces.Repositories.Base;
 
 namespace DDD.Domain.Interfaces.Repositories
 {
-    public interface IRepositoryExemplary
+    public interface IRepositoryExemplary : IRepositoryBase<Exemplary, int>
     {
-        Exemplary AddExemplary(Exemplary exemplary);
-        Exemplary GetExemplaryCount(Exemplary exemplaryId);
+         
     }
 }

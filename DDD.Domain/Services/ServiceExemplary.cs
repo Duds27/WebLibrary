@@ -2,7 +2,6 @@ using DDD.Domain.Arguments.Exemplary;
 using DDD.Domain.Entities;
 using DDD.Domain.Interfaces.Repositories;
 using DDD.Domain.Interfaces.Services;
-using DDD.Domain.ValueObjects;
 
 namespace DDD.Domain.Services
 {
@@ -20,26 +19,36 @@ namespace DDD.Domain.Services
             var book_id         = request.Book_Id;
             var exemplary_count = request.Exemplary_Count;
 
-            Exemplary exemplary = new Exemplary(new Book_Id(book_id), exemplary_count);
+            Exemplary exemplary = new Exemplary(book_id, exemplary_count);
 
-            /* TODO: criar validacoa  */
+            if (! _repositoryExemplary.Existe(e => e.Book_Id == request.Book_Id))
+            {
+                return (AddExemplaryResponse) _repositoryExemplary.Adicionar(exemplary);
+            }
 
-            exemplary = _repositoryExemplary.AddExemplary(exemplary);
-
-            return  (AddExemplaryResponse) exemplary;
+            return null;
         }
 
         public GetExemplaryResponse GetExemplaryCount(GetExemplaryRequest request)
         {
-            var book_id = request.Book_Id;
+            if (request == null)
+            {
+                return null;
+            }
 
-            Exemplary exemplary = new Exemplary(book_id);
-
-            /* TODO: criar validacao */
+            Exemplary exemplary = _repositoryExemplary.ObterPor(e => e.Book_Id == request.Book_Id);
             
-            exemplary = _repositoryExemplary.GetExemplaryCount(exemplary);
+            if (exemplary != null)
+            {
+                return (GetExemplaryResponse) exemplary;
+            }
 
-            return (GetExemplaryResponse) exemplary;
+            return null;
+        }
+
+        public void Dispose()
+        {
+            throw new System.NotImplementedException();
         }
     }
 }

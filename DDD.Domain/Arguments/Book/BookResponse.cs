@@ -14,7 +14,7 @@ namespace DDD.Domain.Arguments.Book
         public static explicit operator BookResponse(Entities.Book entidade)
         {
             return new BookResponse() {
-                Book_Id                 = entidade.Book_Id.Id,
+                Book_Id                 = entidade.Id,
                 Book_Title              = entidade.Book_Title.Title,
                 Book_Description        = entidade.Book_Description,
                 Book_Author             = entidade.Book_Author,

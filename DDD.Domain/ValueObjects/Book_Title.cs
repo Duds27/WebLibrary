@@ -2,7 +2,7 @@ namespace DDD.Domain.ValueObjects
 {
     public class Book_Title
     {
-        protected Book_Title ()
+        protected Book_Title()
         {
 
         }
@@ -22,7 +22,6 @@ namespace DDD.Domain.ValueObjects
         {
             Title = title;
         }
-
         public string Title { get; private set; }
     }
 }

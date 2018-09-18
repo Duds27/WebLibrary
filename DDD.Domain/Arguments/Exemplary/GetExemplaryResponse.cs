@@ -10,7 +10,7 @@ namespace DDD.Domain.Arguments.Exemplary
         public static explicit operator GetExemplaryResponse(Entities.Exemplary entidade)
         {
             return new GetExemplaryResponse() {
-                Book_Id = entidade.Book_Id.Id,
+                Book_Id = entidade.Book_Id,
                 Exemplary_Count = entidade.Exemplary_Count
             };
         }

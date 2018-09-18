@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using DDD.Domain.Arguments.Book;
@@ -19,54 +18,72 @@ namespace DDD.Domain.Services
         }
 
         public AddBookResponse AddBook(AddBookRequest request)
-        {            
+        {
             var book_title              = new Book_Title(request.Book_Title);
             var book_description        = request.Book_Description;
             var book_author             = request.Book_Author;
             var book_publishing_company = request.Book_Publishing_Company;
             var book_price              = request.Book_Price;
 
-            /* TODO: Criar validacao para o book */
-            
             Book book = new Book(book_title, book_description, book_author, book_publishing_company, book_price);
-            
-            book = _repositoryBook.AddBook(book);
 
-            return (AddBookResponse) book;
+            if (! _repositoryBook.Existe(b => b.Book_Title.Title == request.Book_Title))
+            {
+                return (AddBookResponse) _repositoryBook.Adicionar(book);
+            }
+
+            return null;
+        }
+
+        public UpdateBookResponse UpdateBook(UpdateBookRequest request)
+        {
+            if (request == null)
+            {
+                return null;
+            }
+
+            Book book = _repositoryBook.ObterPorId(request.Book_Id);
+
+            if (book != null)
+            {
+                var book_title              = new Book_Title(request.Book_Title);
+                var book_description        = request.Book_Description;
+                var book_author             = request.Book_Author;
+                var book_publishing_company = request.Book_Publishing_Company;
+                var book_price              = request.Book_Price;
+
+                book = new Book(book_title, book_description, book_author, book_publishing_company, book_price);
+                            
+                book = _repositoryBook.Editar(book);
+                
+                return (UpdateBookResponse) book;
+            }
+
+            return null;
         }
 
         public DeleteBookResponse DeleteBook(DeleteBookRequest request)
         {
-            var book_title = new Book_Title(request.Book_Title);
+            Book book = _repositoryBook.ObterPor(b => b.Book_Title.Title == request.Book_Title);
 
-            Book book = new Book(book_title, "", "", "", 0.0);
-            
-            string msg = _repositoryBook.DeleteBook(book_title);
+            if (book != null)
+            {
+                _repositoryBook.Remover(book);
 
-            return new DeleteBookResponse() { Message = "Livro deletado com sucesso!" };
-        }
+                return new DeleteBookResponse() { Message = "Livro deletado com sucesso!" };
+            }
 
-        public EditBookResponse EditBook(EditBookRequest request)
-        {
-            var book_title              = new Book_Title(request.Book_Title);
-            var book_description        = request.Book_Description;
-            var book_author             = request.Book_Author;
-            var book_publishing_company = request.Book_Publishing_Company;
-            var book_price              = request.Book_Price;
-
-            Book book = new Book(book_title, book_description, book_author, book_publishing_company, book_price);
-
-            /* TODO: Criar validacao para o book */
-                        
-            book = _repositoryBook.EditBook(book);
-
-            
-            return (EditBookResponse) book;
+            return null;
         }
 
         public IEnumerable<BookResponse> ListAllBook()
         {
-            return _repositoryBook.ListAllBook().ToList().Select(book => (BookResponse) book).ToList();
+            return _repositoryBook.Listar().ToList().Select(book => (BookResponse) book).OrderBy(b => b.Book_Title).ToList();
+        }        
+
+        public void Dispose()
+        {
+            throw new System.NotImplementedException();
         }
     }
 }

@@ -1,14 +1,10 @@
-using System.Collections.Generic;
-using DDD.Domain.Arguments.Book;
 using DDD.Domain.Entities;
+using DDD.Domain.Interfaces.Repositories.Base;
 
 namespace DDD.Domain.Interfaces.Repositories
 {
-    public interface IRepositoryBook
+    public interface IRepositoryBook : IRepositoryBase<Book, int>
     {
-        Book AddBook(Book book);
-        Book EditBook(Book book);
-        void DeleteBook(Book book);
-        IEnumerable<Book> ListAllBook();
+         
     }
 }

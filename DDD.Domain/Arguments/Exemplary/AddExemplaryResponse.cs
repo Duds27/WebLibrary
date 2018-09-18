@@ -10,7 +10,7 @@ namespace DDD.Domain.Arguments.Exemplary
         public static explicit operator AddExemplaryResponse(Entities.Exemplary entidade)
         {
             return new AddExemplaryResponse() {
-                Exemplary_Id = entidade.Exemplary_Id.Id,
+                Exemplary_Id = entidade.Id,
                 Message = "Exemplar adicionado com sucesso!"
             };
         }

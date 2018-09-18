@@ -7,10 +7,10 @@ namespace DDD.Domain.Arguments.Book
         public int Book_Id { get; set; }
         public string Message { get; set; }
 
-        public static explicit operator AdicionarJogadorResponse(Entities.Book entidade)
+        public static explicit operator AddBookResponse(Entities.Book entidade)
         {
-            return new AdicionarJogadorResponse() {
-                Book_Id = entidade.Book_Id.Id,
+            return new AddBookResponse() {
+                Book_Id = entidade.Id,
                 Message = "Livro adicionado com sucesso!"
             };
         }
