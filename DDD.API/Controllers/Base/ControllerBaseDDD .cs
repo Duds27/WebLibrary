@@ -3,19 +3,24 @@ using System.Net;
 using System.Net.Http;
 using System.Threading.Tasks;
 using System.Web.Http;
+using DDD.Domain.Interfaces.Services;
 using DDD.Domain.Interfaces.Services.Base;
 using DDD.Infra.Transactions;
+using Microsoft.AspNetCore.Mvc;
 
 namespace DDD.API.Controllers.Base
 {
-    public class ControllerBase : ApiController
+    public class ControllerBaseDDD : ApiController
     {
-        private readonly IUnitOfWork _unitOfWork;
+        //private readonly IUnitOfWork _unitOfWork;
         private IServiceBase _serviceBase;
+        private IServiceBook _serviceBook;
 
-        public ControllerBase(IUnitOfWork unitOfWork)
+        //public ControllerBaseDDD(IUnitOfWork unitOfWork)
+        public ControllerBaseDDD(IServiceBook serviceBook)
         {
-            _unitOfWork = unitOfWork;
+            // _unitOfWork = unitOfWork;
+            _serviceBook = serviceBook;
         }
 
         public async Task<HttpResponseMessage> ResponseAsync(object result, IServiceBase serviceBase)
@@ -24,7 +29,7 @@ namespace DDD.API.Controllers.Base
 
             try
                 {
-                _unitOfWork.Commit();
+                // _unitOfWork.Commit();
 
                 return Request.CreateResponse(HttpStatusCode.OK, result);
             }
@@ -41,7 +46,7 @@ namespace DDD.API.Controllers.Base
             return Request.CreateResponse(HttpStatusCode.InternalServerError, new { errors = ex.Message, exception = ex.ToString() });
         }
 
-        protected override void Dispose(bool disposing)
+        protected void Dispose(bool disposing)
         {
             //Realiza o dispose no serviço para que possa ser zerada as notificações
             if (_serviceBase != null)
@@ -49,7 +54,7 @@ namespace DDD.API.Controllers.Base
                 _serviceBase.Dispose();
             }
 
-            base.Dispose(disposing);
+            Dispose(disposing);
         }
     }
 }

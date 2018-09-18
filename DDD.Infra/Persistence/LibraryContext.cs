@@ -5,14 +5,8 @@ namespace DDD.Infra.Persistence
 {
     public class LibraryContext : DbContext
     {
-        public LibraryContext()
-        {
-            
-        }
-
         public LibraryContext(DbContextOptions<LibraryContext> options) : base(options)
-        {
-                
+        {                
         }
 
         public DbSet<Book> Books { get; set; }
@@ -45,7 +39,6 @@ namespace DDD.Infra.Persistence
                 edt.Property(e => e.Exemplary_Count).HasColumnName("exemplary_count");
             });
         }
-
         protected override void OnModelCreating(ModelBuilder construtorDeModelos)
         {
             construtorDeModelos.ForSqlServerUseIdentityColumns();

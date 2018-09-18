@@ -50,10 +50,16 @@ dotnet ef database update
 
 dotnet new webapi
 
-dotnet add package Microsoft.AspNet.WebApi.Owin --version 5.2.6
-dotnet add package Microsoft.Owin.Host.SystemWeb --version 4.0.0
-dotnet add package Microsoft.Owin.Security.OAuth --version 4.0.0
-dotnet add package Microsoft.Owin.Cors --version 4.0.0
+dotnet add package Microsoft.AspNet.WebApi.Owin
+dotnet add package Microsoft.Owin.Host.SystemWeb
+dotnet add package Microsoft.Owin.Security.OAuth
+dotnet add package Microsoft.Owin.Cors
+
+
+dotnet add package Swashbuckle
+
+
+
 
 yarn init
 yarn add bootstrap jquery jquery-validation jquery-validation-unobtrusive angular
