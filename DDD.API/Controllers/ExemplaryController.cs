@@ -18,9 +18,10 @@ namespace DDD.API.Controllers
     {
         private readonly IServiceExemplary _serviceExemplary;
 
-        public ExemplaryController(IUnitOfWork unitOfWork,  IServiceExemplary serviceExemplary) : base(serviceExemplary)
+        // public ExemplaryController(IUnitOfWork unitOfWork,  IServiceExemplary serviceExemplary) : base(unitOfWork)
+        public ExemplaryController(IServiceExemplary serviceExemplary) : base(serviceExemplary)
         {
-            _serviceExemplary = serviceExemplary;
+            // _serviceExemplary = serviceExemplary;
         }
 
 

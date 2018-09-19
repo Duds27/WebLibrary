@@ -1,9 +1,10 @@
+
+
 using System;
 using System.Net;
 using System.Net.Http;
 using System.Threading.Tasks;
 using System.Web.Http;
-using DDD.Domain.Interfaces.Services;
 using DDD.Domain.Interfaces.Services.Base;
 using DDD.Infra.Transactions;
 using Microsoft.AspNetCore.Mvc;
@@ -12,15 +13,14 @@ namespace DDD.API.Controllers.Base
 {
     public class ControllerBaseDDD : ApiController
     {
-        //private readonly IUnitOfWork _unitOfWork;
+        private readonly IUnitOfWork _unitOfWork;
         private IServiceBase _serviceBase;
-        private IServiceBook _serviceBook;
-
-        //public ControllerBaseDDD(IUnitOfWork unitOfWork)
-        public ControllerBaseDDD(IServiceBook serviceBook)
+        
+        // public ControllerBaseDDD(IUnitOfWork unitOfWork)
+        public ControllerBaseDDD(IServiceBase serviceBase)
         {
             // _unitOfWork = unitOfWork;
-            _serviceBook = serviceBook;
+            _serviceBase = serviceBase;
         }
 
         public async Task<HttpResponseMessage> ResponseAsync(object result, IServiceBase serviceBase)

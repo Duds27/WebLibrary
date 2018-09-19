@@ -22,6 +22,10 @@ using Swashbuckle.AspNetCore.Swagger;
 using Unity;
 using DDD.API.App_Start;
 using DDD.Infra.Transactions;
+using DDD.Domain.Services;
+using DDD.Domain.Interfaces.Services;
+using DDD.Infra.Persistence.Repositories;
+using DDD.Domain.Interfaces.Repositories;
 
 namespace DDD.API
 {
@@ -41,6 +45,9 @@ namespace DDD.API
                 options.UseSqlServer(@"Server=DESKTOP-TGA2QF7;Database=LivrariaHbsis;Trusted_Connection=True;"));
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+
+            services.AddScoped<IServiceBook, ServiceBook>();
+            services.AddScoped<IRepositoryBook, RepositoryBook>();
 
             // // Register the Swagger generator, defining 1 or more Swagger documents
             // services.AddSwaggerGen(c =>
