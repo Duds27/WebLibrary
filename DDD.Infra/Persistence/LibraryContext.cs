@@ -1,20 +1,43 @@
+using System.IO;
 using DDD.Domain.Entities;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
 
 namespace DDD.Infra.Persistence
 {
     public class LibraryContext : DbContext
     {
-        public LibraryContext(DbContextOptions<LibraryContext> options) : base(options)
-        {                
+        public LibraryContext(DbContextOptions<LibraryContext> options)
+            :base(options) { }
+        public LibraryContext(){ }
+        public DbSet<Exemplary> Exemplary { get; set; }
+        public DbSet<Book> Book { get; set; }
+
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+    {
+        if (!optionsBuilder.IsConfigured)
+        {
+            IConfigurationRoot configuration = new ConfigurationBuilder()
+               .SetBasePath(Directory.GetCurrentDirectory())
+               .AddJsonFile("appsettings.json")
+               .Build();
+            var connectionString = configuration.GetConnectionString("DefaultConnection");
+            optionsBuilder.UseSqlServer(connectionString);
+        }
+    }
+
+        protected override void OnModelCreating(ModelBuilder builder)
+        {
+            builder.ForSqlServerUseIdentityColumns();
+            builder.HasDefaultSchema("LivrariaHbsis");
+
+            ConfiguraBook(builder);
+            ConfiguraExemplary(builder);
         }
 
-        public DbSet<Book> Books { get; set; }
-        public DbSet<Exemplary> Exemplarys { get; set; }
-
-        private void ConfiguraBook(ModelBuilder construtorDeModelos)
+        private void ConfiguraBook(ModelBuilder modelFactory)
         {
-            construtorDeModelos.Entity<Book>(etd =>
+            modelFactory.Entity<Book>(etd =>
             {
                 etd.ToTable("BOOK");
                 etd.HasKey(b => b.Id).HasName("book_id");
@@ -38,14 +61,6 @@ namespace DDD.Infra.Persistence
                 edt.Property(e => e.Book_Id).HasColumnName("book_id");
                 edt.Property(e => e.Exemplary_Count).HasColumnName("exemplary_count");
             });
-        }
-        protected override void OnModelCreating(ModelBuilder construtorDeModelos)
-        {
-            construtorDeModelos.ForSqlServerUseIdentityColumns();
-            construtorDeModelos.HasDefaultSchema("LivrariaHbsis");
-
-            ConfiguraBook(construtorDeModelos);
-            ConfiguraExemplary(construtorDeModelos);
         }
     }
 }

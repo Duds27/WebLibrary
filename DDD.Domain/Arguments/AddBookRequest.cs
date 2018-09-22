@@ -1,10 +1,7 @@
-using DDD.Domain.Interfaces.Arguments;
-
-namespace DDD.Domain.Arguments.Book
+namespace DDD.Domain.Arguments
 {
-    public class UpdateBookRequest : IRequest
+    public class AddBookRequest
     {
-        public int Book_Id { get; set; }
         public string Book_Title { get; set; }
         public string Book_Description { get; set; }
         public string Book_Author { get; set; }

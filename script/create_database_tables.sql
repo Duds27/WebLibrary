@@ -32,7 +32,7 @@ create table EXEMPLARY
 
 
 -- Inserindo dados na Tabela BOOK para testes do banco de dados
-insert into BOOK (book_title, book_description, book_author, book_publishing_company, book_price) values ('Livro Z', 'Descri��o do Livro Z', 'Erase', 'Ed. Apagar Livro', 428.75);
+insert into BOOK (book_title, book_description, book_author, book_publishing_company, book_price) values ('Livro Z', 'Descrição do Livro Z', 'Erase', 'Ed. Apagar Livro', 428.75);
 insert into BOOK (book_title, book_description, book_author, book_publishing_company, book_price) values ('Livro B', 'Descri��o do Livro B', 'Carlos', 'Ed. Engenharia Para Todos', 536.43);
 insert into BOOK (book_title, book_description, book_author, book_publishing_company, book_price) values ('Livro E', 'Descri��o do Livro E', 'Henrique', 'Ed. Novo Horizonte', 764.67);
 insert into BOOK (book_title, book_description, book_author, book_publishing_company, book_price) values ('Livro D', 'Descri��o do Livro D', 'Alex', 'Ed. Mundo Globalizado', 68.45);

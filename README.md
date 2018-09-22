@@ -24,6 +24,16 @@ dotnet new mvc
 # Para criar o projeto Class Library
 dotnet new classlib
 
+dotnet new sln --name DDD.Build
+dotnet new webapi
+dotnet new classlib
+dotnet sln add .\DDD.API\
+dotnet sln add .\DDD.Domain\
+dotnet sln add .\DDD.Infra\
+
+# Para adicionar projects em outros projects 
+dotnet add reference lib1/lib1.csproj lib2/lib2.csproj
+
 
 dotnet add package Microsoft.EntityFrameworkCore
 dotnet add package Microsoft.EntityFrameworkCore.SqlServer
@@ -38,8 +48,7 @@ dotnet add package Microsoft.AspNetCore.App
 dotnet add package Unity
 dotnet add package Microsoft.AspNet.WebApi.Core
 
-# Para adicionar projects em outros projects 
-dotnet add reference lib1/lib1.csproj lib2/lib2.csproj
+
 
 # Atualiza Migrations com Banco de Dados
 dotnet ef database update

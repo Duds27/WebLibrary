@@ -1,14 +1,12 @@
-using System.Collections.Generic;
-using DDD.Domain.Arguments.Book;
-using DDD.Domain.Interfaces.Services.Base;
+using DDD.Domain.Arguments;
 
 namespace DDD.Domain.Interfaces.Services
 {
-    public interface IServiceBook : IServiceBase
+    public interface IServiceBook
     {
         AddBookResponse AddBook(AddBookRequest request);
-        UpdateBookResponse UpdateBook(UpdateBookRequest request);
-        DeleteBookResponse DeleteBook(DeleteBookRequest request);
-        IEnumerable<BookResponse> ListAllBook();
+        // EditBookResponse EditBook(EditBookRequest request);
+        // DeleteBookResponse DeleteBook(DeleteBookRequest request);
+        // IEnumerable<BookResponse> ListAllBook();
     }
 }

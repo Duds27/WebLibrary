@@ -1,8 +1,6 @@
-using DDD.Domain.Interfaces.Arguments;
-
-namespace DDD.Domain.Arguments.Book
+namespace DDD.Domain.Arguments
 {
-    public class AddBookResponse : IResponse
+    public class AddBookResponse
     {
         public int Book_Id { get; set; }
         public string Message { get; set; }
@@ -13,6 +11,6 @@ namespace DDD.Domain.Arguments.Book
                 Book_Id = entidade.Id,
                 Message = "Livro adicionado com sucesso!"
             };
-        }
+        }   
     }
 }
