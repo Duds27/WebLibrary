@@ -14,6 +14,6 @@ namespace DDD.Domain.Interfaces.Arguments
         Task<TEntidade> GetById(int id);
         Task<IActionResult> Post(TEntidade entidade);
         Task<IActionResult> Put(TEntidade entidade);
-        Task<IActionResult> Delete();
+        Task<IActionResult> Delete(TEntidade entidade);
     }
 }

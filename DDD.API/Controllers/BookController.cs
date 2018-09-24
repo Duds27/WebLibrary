@@ -20,11 +20,6 @@ namespace DDD.API.Controllers
             _service = service;
         }
 
-        public Task<IActionResult> Delete()
-        {
-            throw new System.NotImplementedException();
-        }
-
         // GET api/Book/ListAll
         [HttpGet(Name = "GetLivros")]
         [Route("ListAll")]
@@ -61,8 +56,15 @@ namespace DDD.API.Controllers
             return CreatedAtRoute("GetLivros", new { Controller = "Book", id = entidade.Book_Description }, entidade);
         }
 
-        
-
+        [HttpDelete]
+        public async Task<IActionResult> Delete([FromBody] Book entidade)
+        {
+            if (entidade.Id > 0)
+            {
+                await _service.DeleteBook(entidade);
+            }
+            return CreatedAtRoute("GetLivros", new { Controller = "Book", id = entidade.Book_Description }, entidade);            
+        }
         
 
 

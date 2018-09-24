@@ -58,6 +58,10 @@ namespace DDD.Domain.Services
         {
             await _repositoryBook.UpdateBook(request);
         }
-        
+
+        public async Task DeleteBook(Book request)
+        {
+            await _repositoryBook.DeleteBook(request);
+        }
     }
 }
