@@ -1,4 +1,4 @@
-namespace DDD.Domain.Arguments
+namespace DDD.Domain.Arguments.Book
 {
     public class AddBookResponse
     {

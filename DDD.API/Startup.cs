@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using DDD.Domain.Interfaces.Repositories;
+using DDD.Domain.Interfaces.Services;
+using DDD.Domain.Services;
 using DDD.Infra.Persistence;
 using DDD.Infra.Persistence.Repositories;
 using Microsoft.AspNetCore.Builder;
@@ -39,6 +41,7 @@ namespace DDD.API
 
             //using Dependency Injection
             services.AddScoped<IRepositoryBook, RepositoryBook>();
+            services.AddScoped<IServiceBook, ServiceBook>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

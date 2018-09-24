@@ -9,8 +9,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DDD.Infra.Migrations
 {
     [DbContext(typeof(LibraryContext))]
-    [Migration("20180921234013_InitialCreate")]
-    partial class InitialCreate
+    [Migration("20180923160252_NewMigri")]
+    partial class NewMigri
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {

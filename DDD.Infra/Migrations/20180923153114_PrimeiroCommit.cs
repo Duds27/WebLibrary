@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace DDD.Infra.Migrations
 {
-    public partial class InitialCreate : Migration
+    public partial class PrimeiroCommit : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {

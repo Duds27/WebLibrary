@@ -4,8 +4,10 @@ namespace DDD.Domain.Entities
 {
     public class Book : EntityBase
     {
+        
         public Book(int id) : base(id)
         {
+            
         }
 
         public string Book_Title { get; set; }

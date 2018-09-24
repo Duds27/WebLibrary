@@ -33,12 +33,71 @@ create table EXEMPLARY
 
 -- Inserindo dados na Tabela BOOK para testes do banco de dados
 insert into BOOK (book_title, book_description, book_author, book_publishing_company, book_price) values ('Livro Z', 'Descrição do Livro Z', 'Erase', 'Ed. Apagar Livro', 428.75);
-insert into BOOK (book_title, book_description, book_author, book_publishing_company, book_price) values ('Livro B', 'Descri��o do Livro B', 'Carlos', 'Ed. Engenharia Para Todos', 536.43);
-insert into BOOK (book_title, book_description, book_author, book_publishing_company, book_price) values ('Livro E', 'Descri��o do Livro E', 'Henrique', 'Ed. Novo Horizonte', 764.67);
-insert into BOOK (book_title, book_description, book_author, book_publishing_company, book_price) values ('Livro D', 'Descri��o do Livro D', 'Alex', 'Ed. Mundo Globalizado', 68.45);
-insert into BOOK (book_title, book_description, book_author, book_publishing_company, book_price) values ('Livro A', 'Descri��o do Livro A', 'Eduardo', 'Ed. Computa��o', 635.34);
-insert into BOOK (book_title, book_description, book_author, book_publishing_company, book_price) values ('Livro C', 'Descri��o do Livro C', 'Espinoza', 'Ed. Gera��o XXI', 28.55);
+insert into BOOK (book_title, book_description, book_author, book_publishing_company, book_price) values ('Livro B', 'Descrição do Livro B', 'Carlos', 'Ed. Engenharia Para Todos', 536.43);
+insert into BOOK (book_title, book_description, book_author, book_publishing_company, book_price) values ('Livro E', 'Descrição do Livro E', 'Henrique', 'Ed. Novo Horizonte', 764.67);
+insert into BOOK (book_title, book_description, book_author, book_publishing_company, book_price) values ('Livro D', 'Descrição do Livro D', 'Alex', 'Ed. Mundo Globalizado', 68.45);
+insert into BOOK (book_title, book_description, book_author, book_publishing_company, book_price) values ('Livro A', 'Descrição do Livro A', 'Eduardo', 'Ed. Computação', 635.34);
+insert into BOOK (book_title, book_description, book_author, book_publishing_company, book_price) values ('Livro C', 'Descrição do Livro C', 'Espinoza', 'Ed. Geração XXI', 28.55);
 
+USE [LivrariaHbsis]
+GO
+
+INSERT INTO [LivrariaHbsis].[BOOK]
+           ([book_title]
+           ,[book_description]
+           ,[book_author]
+           ,[book_publishing_company]
+           ,[book_price])
+     VALUES
+           ('Livro Z'
+           ,'Descrição do Livro Z'
+           ,'Erase'
+           ,'Ed. Apagar Livro'
+           ,428.75)
+GO
+
+
+
+
+{
+	"Book_Title": "Livro Z",
+	"Book_Description": "Descricao Z",
+	"Book_Author": "Autor Z",
+	"Book_Publishing_Company": "Editora Z",
+	"Book_Price": "454.4"
+}
+
+{
+	"Book_Title": "Livro B",
+	"Book_Description": "Descrição do Livro B",
+	"Book_Author": "Carlos",
+	"Book_Publishing_Company": "Ed. Engenharia Para Todos",
+	"Book_Price": "536.43"
+}
+
+{
+	"Book_Title": "Livro C",
+	"Book_Description": "Descricao A",
+	"Book_Author": "Autor A",
+	"Book_Publishing_Company": "Editora A",
+	"Book_Price": "452.43"
+}
+
+{
+	"Book_Title": "Livro A",
+	"Book_Description": "Descricao A",
+	"Book_Author": "Autor A",
+	"Book_Publishing_Company": "Editora A",
+	"Book_Price": "452.43"
+}
+
+{
+	"Book_Title": "Livro A",
+	"Book_Description": "Descricao A",
+	"Book_Author": "Autor A",
+	"Book_Publishing_Company": "Editora A",
+	"Book_Price": "452.43"
+}
 
 -- Deletando registros - Teste de Query
 delete from BOOK where book_id = 1;
