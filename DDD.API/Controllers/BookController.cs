@@ -54,16 +54,10 @@ namespace DDD.API.Controllers
         [HttpPut]
         public async Task<IActionResult> Put([FromBody] Book entidade)
         {
-            if (entidade == null)
+            if (entidade != null)
             {
-                return NotFound();
+                await _service.EditBook(entidade);
             }
-            var bookObj = await _service.GetBookById(entidade.Id);
-            if (bookObj == null)
-            {                
-                return NotFound();
-            }
-            await _service.EditBook(bookObj);
             return CreatedAtRoute("GetLivros", new { Controller = "Book", id = entidade.Book_Description }, entidade);
         }
 

@@ -65,6 +65,13 @@ namespace DDD.API.Controllers
             return item;
         }
 
+        [HttpPut]
+        [Route("TestPut")]
+        public async Task TestPut([FromBody] Book book)
+        {
+            await _repository.UpdateBook(book);
+        }
+
         
     }
 }

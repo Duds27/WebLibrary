@@ -49,12 +49,21 @@ namespace DDD.Infra.Persistence.Repositories
 
         public async void DeleteBook(Book entidade)
         {
-            var itemToRemove = await _context.Book.SingleOrDefaultAsync(r => r.Id == entidade.Id);
-            if (itemToRemove != null)
-            {
-                _context.Book.Remove(itemToRemove);
-                await _context.SaveChangesAsync();
-            }
+            var b = await _context.Book.FindAsync(entidade.Id);
+            b.Book_Author = entidade.Book_Author;
+            b.Book_Description = entidade.Book_Description;
+            b.Book_Price = entidade.Book_Price;
+            b.Book_Publishing_Company = entidade.Book_Publishing_Company;
+            b.Book_Title = entidade.Book_Title;
+
+            await _context.SaveChangesAsync();
+
+            // var itemToRemove = await _context.Book.SingleOrDefaultAsync(r => r.Id == entidade.Id);
+            // if (itemToRemove != null)
+            // {
+            //     _context.Book.Remove(itemToRemove);
+            //     await _context.SaveChangesAsync();
+            // }
         }
         
         public async Task<IEnumerable<Book>> ListAllBook()
