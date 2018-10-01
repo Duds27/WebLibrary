@@ -13,7 +13,7 @@ namespace DDD.Domain.Interfaces.Repositories
         Task UpdateBook(Book entidade);
         Task DeleteBook(Book entidade);
         Task<IEnumerable<Book>> ListAllBook();
-        // Task<Book> FindByTitle(string book_Title);
+        
         Task<Book> FindById(int id);
     }
 }

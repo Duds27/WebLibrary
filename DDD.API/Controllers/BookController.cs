@@ -1,6 +1,5 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using DDD.Domain.Arguments.Book;
 using DDD.Domain.Entities;
 using DDD.Domain.Entities.Base;
 using DDD.Domain.Interfaces.Arguments;
@@ -65,20 +64,6 @@ namespace DDD.API.Controllers
             }
             return CreatedAtRoute("GetLivros", new { Controller = "Book", id = entidade.Book_Description }, entidade);            
         }
-        
-
-
-
-
-
-
-        // GET api/Book/Livro Z
-        // [HttpGet("{title}")]
-        // public async Task<EntityBase> GetByTitle(string title)
-        // {
-        //     return await _service.GetBookByTitle(title);
-        // }
-
 
     }
 }

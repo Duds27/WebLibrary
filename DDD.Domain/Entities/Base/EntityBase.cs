@@ -7,11 +7,6 @@ namespace DDD.Domain.Entities.Base
             Id = id;
         }
 
-        // protected EntityBase()
-        // {
-            
-        // }
-
         public int Id { get; private set; }
     }
 }

@@ -76,26 +76,34 @@ GO
 }
 
 {
+	"Book_Title": "Livro E",
+	"Book_Description": "Descrição do Livro E",
+	"Book_Author": "Autor E",
+	"Book_Publishing_Company": "Editora E",
+	"Book_Price": "452.43"
+}
+
+{
+	"Book_Title": "Livro D",
+	"Book_Description": "Descricao D",
+	"Book_Author": "Autor D",
+	"Book_Publishing_Company": "Editora D",
+	"Book_Price": "452.43"
+}
+
+{
+	"Book_Title": "Livro A",
+	"Book_Description": "Descricao A",
+	"Book_Author": "Autor A",
+	"Book_Publishing_Company": "Editora A",
+	"Book_Price": "452.43"
+}
+
+{
 	"Book_Title": "Livro C",
-	"Book_Description": "Descricao A",
-	"Book_Author": "Autor A",
-	"Book_Publishing_Company": "Editora A",
-	"Book_Price": "452.43"
-}
-
-{
-	"Book_Title": "Livro A",
-	"Book_Description": "Descricao A",
-	"Book_Author": "Autor A",
-	"Book_Publishing_Company": "Editora A",
-	"Book_Price": "452.43"
-}
-
-{
-	"Book_Title": "Livro A",
-	"Book_Description": "Descricao A",
-	"Book_Author": "Autor A",
-	"Book_Publishing_Company": "Editora A",
+	"Book_Description": "Descricao C",
+	"Book_Author": "Autor C",
+	"Book_Publishing_Company": "Editora C",
 	"Book_Price": "452.43"
 }
 

@@ -11,14 +11,8 @@ namespace DDD.Domain.Entities
             Book_Id = book_Id;
             Exemplary_Count = exemplary_Count;
         }
-        
-        // public Exemplary(int book_Id, int exemplary_Count)
-        // {
-        //     Book_Id = book_Id;
-        //     Exemplary_Count = exemplary_Count;
-        // }
 
-        public int Book_Id { get; private set; }
-        public int Exemplary_Count { get; private set; }
+        public int Book_Id { get; set; }
+        public int Exemplary_Count { get; set; }
     }
 }

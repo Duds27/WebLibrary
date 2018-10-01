@@ -11,8 +11,10 @@ namespace DDD.Domain.Interfaces.Repositories
 
         Task UpdateExemplary(Exemplary entidade);
 
-        void DeleteExemplary(Exemplary entidade);
+        Task DeleteExemplary(Exemplary entidade);
 
         Task<IEnumerable<Exemplary>> ListAllExemplary();
+        
+        Task<Exemplary> FindById(int id);
     }
 }

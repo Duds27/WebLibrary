@@ -34,7 +34,7 @@ namespace DDD.Infra.Persistence.Repositories
 
         public async Task UpdateBook(Book entidade)
         {
-            var itemToUpdate = await _context.Book.FindAsync(entidade.Id); //_context.Book.SingleOrDefaultAsync(r => r.Id == entidade.Id);
+            var itemToUpdate = await _context.Book.FindAsync(entidade.Id);
             if (itemToUpdate != null)
             {
                 itemToUpdate.Book_Title = entidade.Book_Title;
@@ -55,13 +55,6 @@ namespace DDD.Infra.Persistence.Repositories
                 _context.Book.Remove(b);
                 await _context.SaveChangesAsync();
             }
-
-            // var itemToRemove = await _context.Book.SingleOrDefaultAsync(r => r.Id == entidade.Id);
-            // if (itemToRemove != null)
-            // {
-            //     _context.Book.Remove(itemToRemove);
-            //     await _context.SaveChangesAsync();
-            // }
         }
         
         public async Task<IEnumerable<Book>> ListAllBook()
@@ -74,29 +67,12 @@ namespace DDD.Infra.Persistence.Repositories
         public async Task<Book> FindById(int id)
         {
             return await _context.Book.FindAsync(id);
-        }
+        }        
 
-        // public async Task<Book> Find(string key)
-        // {
-        //     return await _context.Book.FindAsync(key);
-        // }
-
-        // public async Task<Book> FindByTitle(string book_Title)
-        // {
-        //     return this.ObterPor(e => e.Book_Title == book_Title);
-        //     //_context.Set<TEntidade>().Any(where)
-        //     //return await _context.Set<Book>().AnyAsync(e=>e.Book_Title.Equals(book_Title));
-        //     //return await _context.Book
-        //       //  .SingleAsync(e => e.Book_Title.Equals(book_Title));
-        //         // .Where(e => e.Book_Title.Equals(book_Title))
-        //         // .FirstOrDefaultAsync();
-        // }
-
-        public async Task<IEnumerable<Book>> GetAll()
+         public async Task<IEnumerable<Book>> GetAll()
         {
             return await _context.Book.ToListAsync();
         }
-
         
     }
 }
