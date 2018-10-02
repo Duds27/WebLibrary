@@ -41,7 +41,9 @@ namespace DDD.API
 
             //using Dependency Injection
             services.AddScoped<IRepositoryBook, RepositoryBook>();
+            services.AddScoped<IRepositoryExemplary, RepositoryExemplary>();
             services.AddScoped<IServiceBook, ServiceBook>();
+            services.AddScoped<IServiceExemplary, ServiceExemplary>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
