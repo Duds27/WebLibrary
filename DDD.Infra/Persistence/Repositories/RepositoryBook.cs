@@ -73,6 +73,10 @@ namespace DDD.Infra.Persistence.Repositories
         {
             return await _context.Book.ToListAsync();
         }
-        
+
+        public async Task<IEnumerable<Book>> ListAllBookByTitle()
+        {
+            return await _context.Book.OrderBy(b => b.Book_Title).ToListAsync();
+        }
     }
 }

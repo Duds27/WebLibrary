@@ -107,6 +107,38 @@ GO
 	"Book_Price": "452.43"
 }
 
+
+-- Exemplary Count Exampl
+{
+	"Book_Id": "1002",
+	"Exemplary_Count": "3"
+}
+
+{
+	"Book_Id": "1003",
+	"Exemplary_Count": "2"
+}
+
+{
+	"Book_Id": "1004",
+	"Exemplary_Count": "5"
+}
+
+{
+	"Book_Id": "1005",
+	"Exemplary_Count": "1"
+}
+
+{
+	"Book_Id": "1006",
+	"Exemplary_Count": "7"
+}
+
+{
+	"Book_Id": "1007",
+	"Exemplary_Count": "10"
+}
+
 -- Deletando registros - Teste de Query
 delete from BOOK where book_id = 1;
 

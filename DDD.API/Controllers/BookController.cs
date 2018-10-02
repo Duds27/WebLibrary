@@ -34,6 +34,13 @@ namespace DDD.API.Controllers
             return await _service.GetBookById(id);
         }
 
+        [HttpGet(Name = "GetLivrosOrdenadoTitulo")]
+        [Route("ListAllByTitle")]
+        public async Task<IEnumerable<Book>> GetAllBookOrderByTitle()
+        {
+            return await _service.ListAllBookByTitle();
+        }
+
 
         [HttpPost]
         public async Task<IActionResult> Post([FromBody] Book entidade)

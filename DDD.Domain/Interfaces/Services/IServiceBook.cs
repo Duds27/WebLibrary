@@ -12,6 +12,7 @@ namespace DDD.Domain.Interfaces.Services
         Task<Book> GetBookById(int id);
         Task EditBook(Book request);
         Task DeleteBook(Book request);
-        Task<IEnumerable<Book>> ListAllBook();        
+        Task<IEnumerable<Book>> ListAllBook();
+        Task<IEnumerable<Book>> ListAllBookByTitle();
     }
 }

@@ -36,6 +36,11 @@ namespace DDD.Domain.Services
             return await _repositoryBook.ListAllBook();
         }
 
+        public async Task<IEnumerable<Book>> ListAllBookByTitle()
+        {
+            return await _repositoryBook.ListAllBookByTitle();
+        }
+
         public async Task EditBook(Book request)
         {
             await _repositoryBook.UpdateBook(request);
@@ -45,5 +50,6 @@ namespace DDD.Domain.Services
         {
             await _repositoryBook.DeleteBook(request);
         }
+
     }
 }

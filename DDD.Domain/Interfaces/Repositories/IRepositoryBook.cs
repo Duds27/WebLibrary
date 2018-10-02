@@ -15,5 +15,6 @@ namespace DDD.Domain.Interfaces.Repositories
         Task<IEnumerable<Book>> ListAllBook();
         
         Task<Book> FindById(int id);
+        Task<IEnumerable<Book>> ListAllBookByTitle();
     }
 }
